@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--基本字体-->
-    <dimen name="MainTextSize">18sp</dimen>
+    <dimen name="MainTextSize">16sp</dimen>
     <!--主标题-->
-    <dimen name="TitleTextSize">30sp</dimen>
+    <dimen name="TitleTextSize">24sp</dimen>
     <dimen name="BottomTextSize">16sp</dimen>
     <dimen name="ItemTitleTextSize">24sp</dimen>
     <dimen name="MyselfNameTextSize">22sp</dimen>

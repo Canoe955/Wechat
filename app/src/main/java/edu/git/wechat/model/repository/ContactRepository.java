@@ -28,6 +28,7 @@ public class ContactRepository {
     }
 
     public LiveData<List<Contact>> getAllContactsLive() {
+
         return allContactsLive;
     }
 

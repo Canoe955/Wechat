@@ -1,8 +1,7 @@
-package edu.git.wechat;
+package edu.git.wechat.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +12,7 @@ import android.widget.Button;
 
 import java.util.List;
 
+import edu.git.wechat.R;
 import edu.git.wechat.adapter.MessageAdapter;
 import edu.git.wechat.model.entity.Contact;
 import edu.git.wechat.viewmodel.ContactViewModel;
@@ -33,7 +33,7 @@ public class TestActivity extends AppCompatActivity {
         recyclerView.setAdapter(messageAdapter);
 
         buttonInsert = findViewById(R.id.buttonInsert);
-        buttonClear = findViewById(R.id.buttonClear);
+        buttonClear = findViewById(R.id.buttonRegister);
 
         contactViewModel.getAllContactsLive().observe(this, new Observer<List<Contact>>() {
             @Override

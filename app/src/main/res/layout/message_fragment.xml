@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".ui.fragment.bottom.MessageFragment">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/next_color"
+    tools:context=".ui.fragment.bottom.MessageFragment">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -18,7 +19,7 @@ tools:context=".ui.fragment.bottom.MessageFragment">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.00" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -26,7 +27,7 @@ tools:context=".ui.fragment.bottom.MessageFragment">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
+        app:layout_constraintGuide_percent="0.08" />
 
     <TextView
         android:id="@+id/textView3"
@@ -37,46 +38,48 @@ tools:context=".ui.fragment.bottom.MessageFragment">
         android:textSize="@dimen/TitleTextSize"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:contentDescription="提交"
+        android:contentDescription="@string/add_tijiao"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.892"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
-        app:layout_constraintVertical_bias="0.636"
-        app:srcCompat="@drawable/jiahao" />
+        app:layout_constraintVertical_bias="0.458"
+        app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.19" />
+        app:layout_constraintGuide_percent="0.14" />
+
 
     <EditText
         android:id="@+id/textView10"
         android:layout_width="380dp"
         android:layout_height="40dp"
         android:background="@drawable/shape_register_next_login"
-        android:drawableLeft="@drawable/search"
+        android:drawableLeft="@drawable/ic_baseline_search_24"
         android:gravity="center_vertical"
         android:paddingLeft="160dp"
         android:text="@string/search"
         android:textSize="@dimen/MainTextSize"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline13" />
-
+        app:layout_constraintTop_toTopOf="@+id/guideline13"
+        app:layout_constraintVertical_bias="0.075" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_fragment_view"
@@ -89,7 +92,7 @@ tools:context=".ui.fragment.bottom.MessageFragment">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline14"
         tools:ignore="UnknownId,UnknownIdInLayout"
-        tools:listitem="@layout/item_message"></androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/item_message" />
 
     <TextView
         android:id="@+id/username_textview"
@@ -97,10 +100,10 @@ tools:context=".ui.fragment.bottom.MessageFragment">
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11"
-        app:layout_constraintVertical_bias="0.625"
-        tools:text="123456789"/>
+        app:layout_constraintVertical_bias="0.318"
+        tools:text="123456789" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

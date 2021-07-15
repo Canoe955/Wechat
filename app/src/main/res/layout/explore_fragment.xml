@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline11"
             app:layout_constraintVertical_bias="0.636"
-            app:srcCompat="@drawable/jiahao" />
+            app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline14"
@@ -76,7 +76,8 @@
             android:id="@+id/imageView36"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/pengyouquan"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_friend_circle_24"
             app:layout_constraintBottom_toTopOf="@+id/guideline14"
             app:layout_constraintEnd_toEndOf="@+id/textView52"
             app:layout_constraintHorizontal_bias="0.043"
@@ -94,10 +95,10 @@
             android:textSize="@dimen/MainTextSize"
             app:layout_constraintBottom_toTopOf="@+id/guideline14"
             app:layout_constraintEnd_toEndOf="@+id/discoverText"
-            app:layout_constraintHorizontal_bias="0.069"
+            app:layout_constraintHorizontal_bias="0.066"
             app:layout_constraintStart_toEndOf="@+id/imageView36"
             app:layout_constraintTop_toTopOf="@+id/guideline13"
-            app:layout_constraintVertical_bias="0.666" />
+            app:layout_constraintVertical_bias="0.703" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

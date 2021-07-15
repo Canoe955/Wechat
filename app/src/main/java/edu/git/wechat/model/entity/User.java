@@ -4,10 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "user")
 public class User {
+
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    public long id;
     @ColumnInfo(name = "user_name")
     private String userName;
     @ColumnInfo(name = "account")
@@ -17,12 +18,19 @@ public class User {
     @ColumnInfo(name = "QQ_Email")
     private String QQEmail;
 
-    public User(int id, String userName, String account, String password, String QQEmail) {
-        this.id = id;
+    public User( String userName, String account, String password, String QQEmail) {
         this.userName = userName;
         this.account = account;
         this.password = password;
         this.QQEmail = QQEmail;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUserName() {

@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/MessageFragment"
-        android:icon="@drawable/qipao"
+        android:icon="@drawable/ic_message_24"
         android:title="@string/weixin" />
     <item
         android:id="@+id/ContactFragment"
-        android:icon="@drawable/tongxunlu"
+        android:icon="@drawable/ic_contact_24"
         android:title="@string/address_book" />
     <item
         android:id="@+id/ExploreFragment"
-        android:icon="@drawable/faxian"
+        android:icon="@drawable/ic_explore_24"
         android:title="@string/discover" />
     <item
         android:id="@+id/AccountFragment"
-        android:icon="@drawable/me"
+        android:icon="@drawable/ic_account_24"
         android:title="@string/own" />
 </menu>
