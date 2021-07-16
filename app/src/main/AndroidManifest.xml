@@ -10,6 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wechat">
+        <activity android:name=".ui.activity.RegisterActivity" >
+
+        </activity>
+        <activity android:name=".ui.activity.LoginActivity" >
+
+
+        </activity>
         <activity android:name=".ui.activity.ChatingDetailActivity" />
         <activity
             android:name=".ui.activity.TabContactActivity"
@@ -17,11 +24,8 @@
             android:theme="@style/Theme.Wechat.NoActionBar" />
         <activity android:name=".test.TestLogingActivity" />
         <activity android:name=".test.TestActivity" >
-
         </activity>
         <activity android:name=".ui.activity.OtherLoginActivity" />
-        <activity android:name=".ui.activity.RegisterActivity" />
-        <activity android:name=".ui.activity.LoginActivity" />
         <activity android:name=".ui.activity.LoadingActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +34,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.MainActivity">
-
         </activity>
     </application>
 

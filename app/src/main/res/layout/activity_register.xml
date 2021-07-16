@@ -135,7 +135,7 @@
         app:layout_constraintVertical_bias="0.489" />
 
     <EditText
-        android:id="@+id/tv_register_phone_number"
+        android:id="@+id/ed_register_phone_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -214,7 +214,7 @@
         app:layout_constraintVertical_bias="0.54" />
 
     <Button
-        android:id="@+id/phone_register"
+        android:id="@+id/button_phone_register"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:background="@drawable/shape_register_next_login"
