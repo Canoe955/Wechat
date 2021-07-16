@@ -28,7 +28,7 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         contactViewModel = ViewModelProviders.of(this).get(ContactViewModel.class);
         recyclerView = findViewById(R.id.recycleview);
-        messageAdapter = new MessageAdapter();
+        messageAdapter = new MessageAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(messageAdapter);
 

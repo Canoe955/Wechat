@@ -53,7 +53,4 @@ public class TabConAndBottomFragment extends Fragment {
         });
 
     }
-
-
-
 }

@@ -47,7 +47,7 @@ public class MessageFragment extends Fragment {
 
         contactViewModel = ViewModelProviders.of(this).get(ContactViewModel.class);
         recyclerView = getView().findViewById(R.id.recycle_fragment_view);
-        messageAdapter = new MessageAdapter();
+        messageAdapter = new MessageAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(messageAdapter);
 

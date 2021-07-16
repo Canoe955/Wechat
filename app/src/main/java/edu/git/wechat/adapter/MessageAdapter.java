@@ -1,6 +1,8 @@
 package edu.git.wechat.adapter;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +17,17 @@ import java.util.List;
 
 import edu.git.wechat.R;
 import edu.git.wechat.model.entity.Contact;
+import edu.git.wechat.ui.activity.ChatingDetailActivity;
 
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
     List<Contact> contacts = new ArrayList<>();
+    private Context context;
+
+    public MessageAdapter(Context context) {
+        this.context = context;
+    }
+
     public void  setAllContacts(List<Contact> contacts){
         this.contacts = contacts;
     }
@@ -36,6 +45,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         holder.textView_message.setText(contact.getMessage());
         holder.textView_time.setText(contact.getTime());
         holder.imageView.setImageResource(contact.getImage());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, ChatingDetailActivity.class));
+            }
+        });
     }
 
     @Override

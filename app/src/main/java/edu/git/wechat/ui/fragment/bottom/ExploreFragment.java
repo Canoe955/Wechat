@@ -2,6 +2,7 @@ package edu.git.wechat.ui.fragment.bottom;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;

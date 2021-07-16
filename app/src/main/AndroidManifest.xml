@@ -16,17 +16,21 @@
             android:label="@string/title_activity_tab_contact"
             android:theme="@style/Theme.Wechat.NoActionBar" />
         <activity android:name=".test.TestLogingActivity" />
-        <activity android:name=".test.TestActivity" />
+        <activity android:name=".test.TestActivity" >
+
+        </activity>
         <activity android:name=".ui.activity.OtherLoginActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.LoginActivity" />
-        <activity android:name=".ui.activity.LoadingActivity" />
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.LoadingActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.MainActivity">
+
         </activity>
     </application>
 
