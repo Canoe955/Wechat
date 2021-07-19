@@ -9,27 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline29"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:contentDescription="TODO"
-                android:src="@drawable/background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
@@ -38,7 +17,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+            tools:ignore="UnknownId">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycleview_song"
@@ -60,3 +40,31 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="300dp"
+    android:orientation="vertical"
+    tools:context=".ui.activity.TabContactActivity">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorHeight="4dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/login_green"
+        android:background="?attr/colorPrimary" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</LinearLayout>-->

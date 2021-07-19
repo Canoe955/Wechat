@@ -27,6 +27,7 @@ import edu.git.wechat.R;
 import edu.git.wechat.model.database.DBOpenHelper;
 import edu.git.wechat.model.entity.Accounts;
 import edu.git.wechat.model.entity.User;
+import edu.git.wechat.utils.HintAlertDialog;
 import edu.git.wechat.utils.UtilsPhone;
 import edu.git.wechat.viewmodel.UserViewModel;
 
@@ -49,15 +50,108 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
-        Objects.requireNonNull(getSupportActionBar()).hide();//隐藏标题栏
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);//禁止横屏*/
-        setContentView(R.layout.activity_login);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
+//        Objects.requireNonNull(getSupportActionBar()).hide();//隐藏标题栏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);//禁止横屏
 
+        setContentView(R.layout.activity_login);
         initView();
         dbOpenHelper = new DBOpenHelper(this);
 
-        /*SharedPreferences sp = getSharedPreferences("accounts_account", MODE_PRIVATE);
+    }
+
+    public void initView() {
+        textView = findViewById(R.id.tv_other_login);
+        buttonLogin = findViewById(R.id.phone_login_other_next);
+        imageView = findViewById(R.id.image_exit);
+        editTextAccount = findViewById(R.id.tv_login_phone_number);
+        editTextPassword = findViewById(R.id.editTextTextPassword2);
+
+        buttonLogin.setOnClickListener(this);
+        textView.setOnClickListener(this);
+        imageView.setOnClickListener(this);
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_other_login:
+                startActivity(new Intent(this,OtherLoginActivity.class));
+            case R.id.image_exit:
+                startActivity(new Intent(this,LoadingActivity.class));
+            case R.id.phone_login_other_next:
+                    String name = editTextAccount.getText().toString().trim();
+                    String password = editTextPassword.getText().toString().trim();
+                    //判断是否为空
+                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
+                        ArrayList<Accounts> data = dbOpenHelper.getAccount();
+                        //先用一个线程去取数据 在放到ui线程上面去执行
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ArrayList<Accounts> data = dbOpenHelper.getAccount();
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (data.size() == 0){
+                                            @SuppressLint("ShowToast") Toast toast =
+                                                    Toast.makeText(getApplication(), "请您先去注册!!!", Toast.LENGTH_SHORT);
+                                            toast.show();
+                                        }else {
+                                            for (int i = 0; i < data.size(); i++) {
+                                                Accounts accounts = data.get(i);
+                                                String str_account = accounts.getAccount();
+                                                String str_password = accounts.getPassword();
+                                                if ((name.equals(str_account) && password.equals(str_password))) {
+                                                    userName = accounts.getName();
+                                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                                }else {
+                                                    Toast.makeText(getApplication(), "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        }).start();
+                    } else {
+                        Toast.makeText(this, "请输入你的用户名或密码", Toast.LENGTH_SHORT).show();
+                    }
+        }
+        }
+
+
+             /*  if (data.size()==0){
+                            Toast.makeText(this, "请您先去注册！！！", Toast.LENGTH_SHORT).show();
+                        }else{
+                            for (int i = 0; i < data.size(); i++) {
+                                Accounts accounts = data.get(i);
+                                String str_account = accounts.getAccount();
+                                String str_password = accounts.getPassword();
+                                if ((name.equals(str_account) && password.equals(str_password))) {
+                                    userName = accounts.getName();
+                                    Thread thread = new Thread() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                sleep(2000);
+                                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                                finish();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    };
+                                    thread.start();
+                                    Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Toast.makeText(this, "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }*/
+
+         /*SharedPreferences sp = getSharedPreferences("accounts_account", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         if (sp.getBoolean("flag", false)) {
             String acc_read = sp.getString("acc", "");
@@ -117,7 +211,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                   Toast.makeText(this, "请输入手机号！！！", Toast.LENGTH_SHORT).show();
                 }*//*
 
-         *//* AsyncTask<String, Void, User> stringVoidVoidAsyncTask = userViewModel.queryUserUser(text_phone);
+     *//* AsyncTask<String, Void, User> stringVoidVoidAsyncTask = userViewModel.queryUserUser(text_phone);
                 try {
                     User usr = stringVoidVoidAsyncTask.execute("").get();
                     runOnUiThread(new Runnable() {
@@ -144,70 +238,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             }
         }).start();;*/
-    }
-
-    public void initView() {
-        textView = findViewById(R.id.tv_other_login);
-        buttonLogin = findViewById(R.id.phone_login_other_next);
-        imageView = findViewById(R.id.image_exit);
-        editTextAccount = findViewById(R.id.tv_login_phone_number);
-        editTextPassword = findViewById(R.id.editTextTextPassword2);
-
-        buttonLogin.setOnClickListener(this);
-        textView.setOnClickListener(this);
-        imageView.setOnClickListener(this);
-    }
-
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_other_login:
-                startActivity(new Intent(this,OtherLoginActivity.class));
-            case R.id.image_exit:
-                startActivity(new Intent(this,LoadingActivity.class));
-            case R.id.phone_login_other_next:
-                    String name = editTextAccount.getText().toString().trim();
-                    String password = editTextPassword.getText().toString().trim();
-                    //判断是否为空
-                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
-                        ArrayList<Accounts> data = dbOpenHelper.getAccount();
-                        if (data.size()==0){
-                            Toast.makeText(this, "请您先去注册！！！", Toast.LENGTH_SHORT).show();
-                        }else{
-                            for (int i = 0; i < data.size(); i++) {
-                                Accounts accounts = data.get(i);
-                                String str_account = accounts.getAccount();
-                                String str_password = accounts.getPassword();
-                                if ((name.equals(str_account) && password.equals(str_password))) {
-                                    userName = accounts.getName();
-                                    Thread thread = new Thread() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                sleep(2000);
-                                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                                finish();
-                                            } catch (Exception e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    };
-                                    thread.start();
-                                    Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
-                                }else {
-                                    Toast.makeText(this, "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
-                    } else {
-                        Toast.makeText(this, "请输入你的用户名或密码", Toast.LENGTH_SHORT).show();
-                    }
-
-
-        }
-
-
-        }
 
 }

@@ -23,6 +23,7 @@ public class TabContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_tab_contact);
+
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);

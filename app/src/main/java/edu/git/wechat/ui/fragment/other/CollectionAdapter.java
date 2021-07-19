@@ -1,46 +1,45 @@
 package edu.git.wechat.ui.fragment.other;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import edu.git.wechat.R;
-import edu.git.wechat.ui.fragment.other.base.Artist;
+import edu.git.wechat.ui.fragment.other.base.Singer;
 import edu.git.wechat.ui.fragment.other.base.Song;
 
-public class TabAdapter extends RecyclerView.Adapter<TabAdapter.TabViewHolder> {
-    private List<Song> list;
-    public void setData(List<Song> list){
+public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.TabViewHolder> {
+    private List<Singer> list;
+    private Context context;
+
+    public CollectionAdapter(Context context) {
+        this.context = context;
+    }
+    public void setData(List<Singer> list){
         this.list = list;
         notifyDataSetChanged();
     }
     @NonNull
     @Override
     public TabViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new TabViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_song,parent,false));
+        return new TabViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_art,parent,false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull TabViewHolder holder, int position) {
-        holder.textViewId.setText(String.valueOf(position+1));
         holder.textViewName.setText(list.get(position).getName());
-        /*List<Artist> ar = list.get(position).getAr();
-        StringBuilder str = new StringBuilder();
-        for (int i = 0 ; i < ar.size() ; i++){
-            if (i < 3){
-                str.append(ar.get(i).getName());
-            }else {
-                str.append(ar.get(0).getName());
-            }
-        }
-        holder.textViewAr.setText(str.toString());*/
-        holder.textViewAr.setText(list.get(position).getAr().get(0).getName());
+        String img1v1Url = list.get(position).getImg1v1Url();
+        Glide.with(context).load(img1v1Url).into(holder.imageView);
     }
 
     @Override
@@ -49,13 +48,12 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.TabViewHolder> {
     }
 
     static class TabViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewId,textViewName,textViewAr;
+        TextView textViewName;
+        ImageView imageView;
         public TabViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewId = itemView.findViewById(R.id.textView_id);
             textViewName = itemView.findViewById(R.id.textView_name);
-            textViewAr = itemView.findViewById(R.id.textView_ar);
-
+            imageView = itemView.findViewById(R.id.imageView_art);
         }
     }
 }

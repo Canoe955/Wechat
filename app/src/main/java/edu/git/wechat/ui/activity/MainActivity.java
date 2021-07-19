@@ -7,6 +7,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -26,5 +28,12 @@ public class MainActivity extends AppCompatActivity {
         //进行装配//activity的引用
 //        NavigationUI.setupActionBarWithNavController(this,navController,configuration);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
+
+        /*View view = bottomNavigationView.getChildAt(3);
+        BottomNavigationView itemView = (BottomNavigationView) view;
+        View badge = LayoutInflater.from(this).inflate(R.layout.fragment_tab_con_and_bottom, bottomNavigationView, false);
+        itemView.addView(badge);*/
+
     }
+
 }

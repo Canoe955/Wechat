@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import edu.git.wechat.R;
 import edu.git.wechat.ui.fragment.other.base.Base;
+import edu.git.wechat.ui.fragment.other.base.BaseArt;
 import edu.git.wechat.ui.fragment.other.base.MusicService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,41 +23,38 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class TabConAndBottomFragment extends Fragment {
+public class CollectionFragment extends Fragment {
     RecyclerView recyclerView;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tab_con_and_bottom, container, false);
+        return inflater.inflate(R.layout.fragment_collection, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = getView().findViewById(R.id.recycleview_song);
+        recyclerView = getView().findViewById(R.id.recycleView_art);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        TabAdapter tabAdapter = new TabAdapter();
-        recyclerView.setAdapter(tabAdapter);
+        CollectionAdapter collectionAdapter = new CollectionAdapter(getActivity());
+        recyclerView.setAdapter(collectionAdapter);
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://autumnfish.cn/").addConverterFactory(GsonConverterFactory.create()).build();
         MusicService service = retrofit.create(MusicService.class);
-        Call<Base> songs = service.getSongs("6452");
-        songs.enqueue(new Callback<Base>() {
+        Call<BaseArt> arts = service.getArts("1");
+
+        arts.enqueue(new Callback<BaseArt>() {
             @Override
-            public void onResponse(Call<Base> call, Response<Base> response) {
-                Base body = response.body();
-                tabAdapter.setData(body.getSongs());
+            public void onResponse(Call<BaseArt> call, Response<BaseArt> response) {
+                BaseArt body = response.body();
+                collectionAdapter.setData(body.getArtists());
             }
+
             @Override
-            public void onFailure(Call<Base> call, Throwable t) {
+            public void onFailure(Call<BaseArt> call, Throwable t) {
 
             }
         });
 
-        /*SectionsPagerContactAPIAdapter sectionsPagerAdapter = new SectionsPagerContactAPIAdapter(getContext(),getChildFragmentManager());
-        ViewPager viewPager = getView().findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = getView().findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
-       */
+
     }
 }

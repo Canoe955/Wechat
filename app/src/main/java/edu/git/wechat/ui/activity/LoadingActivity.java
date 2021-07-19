@@ -24,6 +24,7 @@ public class LoadingActivity extends AppCompatActivity {
                 startActivity(new Intent(LoadingActivity.this,LoginActivity.class));
             }
         });
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
