@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import edu.git.wechat.model.database.DBOpenHelper;
 import edu.git.wechat.utils.UtilsPhone;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+
     private EditText et_rgsName, et_rgsAcc, et_rgsPsw;
     private DBOpenHelper dbOpenHelper;
     private Button button,button_phone_register;
@@ -26,6 +28,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);//禁止横屏
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);//禁止横屏
         setContentView(R.layout.activity_register);

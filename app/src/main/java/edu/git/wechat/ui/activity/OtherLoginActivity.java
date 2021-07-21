@@ -3,9 +3,11 @@ package edu.git.wechat.ui.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,6 +22,8 @@ public class OtherLoginActivity extends AppCompatActivity {
     private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);//禁止横屏
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_login);
         button = findViewById(R.id.phone_login_other_next);

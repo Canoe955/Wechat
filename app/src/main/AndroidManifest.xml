@@ -10,34 +10,33 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Wechat"
+        android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ui.activity.RegisterActivity" >
-
-        </activity>
-        <activity android:name=".ui.activity.LoginActivity" >
-
-
-        </activity>
+        <activity android:name=".ui.activity.SettingActivity"></activity>
+        <activity android:name=".ui.activity.RegisterActivity"></activity>
+        <activity android:name=".ui.activity.LoginActivity"></activity>
         <activity android:name=".ui.activity.ChatingDetailActivity" />
         <activity
             android:name=".ui.activity.TabContactActivity"
             android:label="@string/title_activity_tab_contact"
             android:theme="@style/Theme.Wechat.NoActionBar" />
-        <activity android:name=".test.TestLogingActivity" />
-        <activity android:name=".test.TestActivity" >
+        <activity android:name=".test.TestLogingActivity" >
+
+        </activity>
+        <activity android:name=".test.TestActivity">
+
         </activity>
         <activity android:name=".ui.activity.OtherLoginActivity" />
-        <activity android:name=".ui.activity.LoadingActivity" >
+        <activity android:name=".ui.activity.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".ui.activity.MainActivity">
-        </activity>
+        <activity android:name=".ui.activity.MainActivity"></activity>
     </application>
 
 </manifest>

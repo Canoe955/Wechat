@@ -51,8 +51,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
-//        Objects.requireNonNull(getSupportActionBar()).hide();//隐藏标题栏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);//禁止横屏
+//        Objects.requireNonNull(getSupportActionBar()).hide();//隐藏标题栏
+
 
         setContentView(R.layout.activity_login);
         initView();
@@ -107,7 +108,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                                     userName = accounts.getName();
                                                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                                 }else {
-                                                    Toast.makeText(getApplication(), "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(getApplication(), "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
+                                                    return;
                                                 }
                                             }
                                         }

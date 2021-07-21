@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,9 +51,6 @@ public class MessageFragment extends Fragment {
         messageAdapter = new MessageAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(messageAdapter);
-
-        /*buttonInsert = getView().findViewById(R.id.buttonInsert);
-        buttonClear = getView().findViewById(R.id.buttonClear);*/
 
         contactViewModel.getAllContactsLive().observe(getActivity(), new Observer<List<Contact>>() {
             @Override
@@ -126,4 +124,6 @@ public class MessageFragment extends Fragment {
             }
         });*/
     }
+
+
 }

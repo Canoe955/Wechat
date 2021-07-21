@@ -1,14 +1,11 @@
-package edu.git.wechat.ui.fragment.bottom;
+package edu.git.wechat.ui.fragment.other;
 
-import androidx.lifecycle.ViewModelProvider;
-
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -17,32 +14,31 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.git.wechat.R;
+import edu.git.wechat.ui.activity.LoadingActivity;
 
-public class ExploreFragment extends Fragment {
-
-    private ExploreViewModel mViewModel;
-
-    public static ExploreFragment newInstance() {
-        return new ExploreFragment();
-    }
-
+public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.explore_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_setting, container, false);
     }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TextView textView;
-        textView = getView().findViewById(R.id.discoverText);
+        getView().findViewById(R.id.imageView4)
+                .setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_settingFragment_to_AccountFragment));
+    }
+
+   /* @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textView = getView().findViewById(R.id.tv_exit_login);
+
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.action_ExploreFragment_to_friendsFragment);
+                startActivity(new Intent(getActivity(), LoadingActivity.class));
             }
         });
-    }
+    }*/
 }

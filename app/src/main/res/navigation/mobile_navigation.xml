@@ -19,10 +19,36 @@
         android:id="@+id/ExploreFragment"
         android:name="edu.git.wechat.ui.fragment.bottom.ExploreFragment"
         android:label="explore_fragment"
-        tools:layout="@layout/explore_fragment" />
+        tools:layout="@layout/explore_fragment" >
+        <action
+            android:id="@+id/action_ExploreFragment_to_friendsFragment"
+            app:destination="@id/friendsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/AccountFragment"
         android:name="edu.git.wechat.ui.fragment.bottom.AccountFragment"
         android:label="account_fragment"
-        tools:layout="@layout/account_fragment" />
+        tools:layout="@layout/account_fragment" >
+        <action
+            android:id="@+id/action_AccountFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/friendsFragment"
+        android:name="edu.git.wechat.ui.fragment.other.FriendsFragment"
+        android:label="fragment_friends"
+        tools:layout="@layout/fragment_friends" >
+        <action
+            android:id="@+id/action_friendsFragment_to_ExploreFragment"
+            app:destination="@id/ExploreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="edu.git.wechat.ui.fragment.other.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_AccountFragment"
+            app:destination="@id/AccountFragment" />
+    </fragment>
 </navigation>
